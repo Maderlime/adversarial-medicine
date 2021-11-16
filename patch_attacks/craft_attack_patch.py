@@ -8,10 +8,10 @@ import os.path as osp
 import numpy as np
 import PIL.Image
 import time
-import keras
-from keras import applications
-from keras import backend as K
-from keras.preprocessing import image
+from tensorflow import keras 
+from tensorflow.keras import applications
+from tensorflow.keras import backend as K
+from tensorflow.keras.preprocessing import image
 
 
 class Dermatology_image_loader(object):
@@ -547,7 +547,9 @@ def attack(model, patch, target_label, n_show=5, scale=0.5, show_indices=None,
                            probs_original_images[i], true_labels[i], indices[i])
 
     if show_indices:
+        
         for ind in show_indices:
+            print(ind, " ", indices, " ",show_indices)
             # Find the index of show_index in indices
             i = np.where(indices == ind)[0][0]
             show_patched_image(patched_imgs[i], probs_patched_images[i],
